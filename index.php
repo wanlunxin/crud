@@ -12,9 +12,9 @@
 
 <?php
 
-include 'conn.php';
+include 'mycon.php';
 
-$query = mysqli_query($conn, "SELECT * FROM task");
+$query = mysqli_query($con, "SELECT * FROM task");
 
 $tasks;
 while ($task = mysqli_fetch_array($query)) {

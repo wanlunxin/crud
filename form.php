@@ -9,10 +9,10 @@ $task = array(
 );
 
 if (isset($_GET['action'])) {
-	include 'conn.php';
+	include 'mycon.php';
 	if ($_GET['action'] == 'edit') {
 		$id = $_GET['id'];
-		$query = mysqli_query($conn, "SELECT * FROM task WHERE id = '$id'");
+		$query = mysqli_query($con, "SELECT * FROM task WHERE id = '$id'");
 		while ($data = mysqli_fetch_array($query)) {
 			$task['id'] = $data['id'];
 			$task['task'] = $data['task'];

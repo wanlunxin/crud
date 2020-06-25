@@ -1,6 +1,6 @@
 <?php
 
-include 'conn.php';
+include 'mycon.php';
 
 // handle posts
 if (isset($_POST['action'])) {
@@ -8,7 +8,7 @@ if (isset($_POST['action'])) {
 		$task = $_POST['task'];
 		$responsible = $_POST['responsible'];
 		$status = $_POST['status'];
-		$query = mysqli_query($conn, "INSERT INTO task (task, responsible, status) VALUES ('$task', '$responsible', '$status')");
+		$query = mysqli_query($con, "INSERT INTO task (task, responsible, status) VALUES ('$task', '$responsible', '$status')");
 		if ($query) {
 			echo "Successfully add a new task.";
 			echo "<br><br>";
@@ -28,7 +28,7 @@ if (isset($_POST['action'])) {
 		$responsible = $_POST['responsible'];
 		$status = $_POST['status'];
 
-		$query = mysqli_query($conn, "UPDATE task SET task = '$task', responsible = '$responsible', status = '$status' WHERE id = '$id'");
+		$query = mysqli_query($con, "UPDATE task SET task = '$task', responsible = '$responsible', status = '$status' WHERE id = '$id'");
 
 		if ($query) {
 			echo "Successfully add a new task.";
@@ -48,7 +48,7 @@ if (isset($_POST['action'])) {
 if (isset($_GET['action'])) {
 	if ($_GET['action'] == 'delete') {
 		$id = $_GET['id'];
-		$query = mysqli_query($conn, "DELETE FROM task WHERE id = '$id'");
+		$query = mysqli_query($con, "DELETE FROM task WHERE id = '$id'");
 		if ($query) {
 			header('Location: /index.php');
 		}
