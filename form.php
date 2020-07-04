@@ -25,13 +25,13 @@ if (isset($_GET['action'])) {
 
 ?>
 
-<h3><?php echo $task['action'] ?> task</h3>
+<h3 style="text-transform: capitalize;"><?php echo $task['action'] ?> task</h3>
 
 <form action="process.php" method="post">
 	Task <br>
-	<textarea name="task" rows="4" cols="50"><?php echo $task['task']; ?></textarea><br>
+	<textarea style="margin-top: 5px; margin-bottom: 10px;" name="task" rows="4" cols="50"><?php echo $task['task']; ?></textarea><br>
 	Responsible <br>
-	<input type="text" name="responsible" value="<?php echo $task['responsible']; ?>"><br><br>
+	<input style="margin-top: 5px;" type="text" name="responsible" value="<?php echo $task['responsible']; ?>"><br><br>
 	Status <br>
 	<input type="radio" name="status" value="processing" <?php echo ($task['status'] == 'processing')?'checked':'' ?>>Processing
 	<input type="radio" name="status" value="finished" <?php echo ($task['status'] == 'finished')?'checked':'' ?>>Finished

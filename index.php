@@ -16,32 +16,34 @@ include 'mycon.php';
 
 $query = mysqli_query($con, "SELECT * FROM task");
 
-$tasks;
+$tasks = [];
 while ($task = mysqli_fetch_array($query)) {
 	$tasks[] = $task;
 }
 
 ?>
 
-<h3>Tasks list</h3>
+<h3>Tasks List</h3>
 
 <table>
 	<thead>
 		<tr>
+			<th>No.</th>
 			<th>Id</th>
 			<th>Task</th>
 			<th>Datetime</th>
 			<th>Responsible</th>
 			<th>Status</th>
-			<th>Edit/Delete</th>
+			<th>Action</th>
 		</tr>
 	</thead>
 	<tbody>
-		<?php foreach ($tasks as $key => $value) { ?>
+		<?php $no = 1; foreach ($tasks as $key => $value) { ?>
 			<tr>
+				<td><?php echo $no; ?></td>
 				<td><?php echo $value['id']; ?></td>
 				<td><?php echo $value['task']; ?></td>
-				<td><?php echo $value['datetime']; ?></td>
+				<td><?php echo $value['date']; ?></td>
 				<td><?php echo $value['responsible']; ?></td>
 				<td><?php echo $value['status']; ?></td>
 				<td>
@@ -49,7 +51,7 @@ while ($task = mysqli_fetch_array($query)) {
 					<a href="process.php?action=delete&id=<?php echo $value['id']; ?>">Delete</a>
 				</td>
 			</tr>
-		<?php } ?>
+		<?php $no++; } ?>
 	</tbody>
 </table>
 
