@@ -1,5 +1,5 @@
 # crud
-A simple PHP Create, Edit and Delete
+A simple Create, Read, Update and Delete (CRUD) with PHP and MySQLi
 
 Nama: Setiadi / NIM 1119110187 <br />
 Jurusan: Teknik Informatika - Software Engineering <br />
